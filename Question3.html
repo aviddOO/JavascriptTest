@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Question 3</title>
+</head>
+<body>
+    <h1>Welcome to Porfolio grader</h1>
+    <p1>Please enter your marks for each section out of 25</p1><br>
+    <p3>Anlysis Section</p3>
+    <input type="number" id="mark-a" value="0"><br>
+    <p4>Design Section</p4>
+    <input type="number" id="mark-d" value="0"><br>
+    <p5>Implementation Section</p5>
+    <input type="number" id="mark-i" value="0"><br>
+    <p6>Evaluation Section</p6>
+    <input type="number" id="mark-e" value="0"><br>
+
+    <button onclick="portfolioGrade()">Grade the Portfolio</button><br>
+
+    <p7 id="totalMark">Total Mark: </p7><br>
+    <p8 id="grade">Grade: </p8><br>
+    <p9 id="marksNeeded">Marks Needed for next grade: </p9><br>
+
+
+    <script>
+        function portfolioGrade() {
+            let mark1 = document.getElementById("mark-a").value;
+            let mark2 = document.getElementById("mark-d").value;
+            let mark3 = document.getElementById("mark-i").value;
+            let mark4 = document.getElementById("mark-e").value;
+
+            let markT = Number(mark1) + Number(mark2) + Number(mark3) + Number(mark4)
+            let portfolioGrade = grade(markT);
+            let markNeeded = marksNeeded(markT);
+
+            document.getElementById("totalMark").innerHTML = "Total Mark: " + String(Number(markT));
+            document.getElementById("grade").innerHTML = "Grade: " + portfolioGrade;
+            document.getElementById("marksNeeded").innerHTML = "Marks Needed for next grade: " + markNeeded;
+        }
+
+        function grade(markT) {
+            if (markT >= 80) {
+                return "A+";
+            } else if (markT >= 67) {
+                return "A";
+            } else if (markT >= 54) {
+                return "B";
+            } else if (markT >= 41) {
+                return "C";
+            } else if (markT >= 31) {
+                return "D";
+            } else if (markT >= 22) {
+                return "E";
+            } else if (markT >= 13) {
+                return "F";
+            } else if (markT >= 4) {
+                return "G";
+            } else if (markT >= 0) {
+                return "U";
+            } else {
+                return "F";
+            }
+        }
+
+        function marksNeeded(markT) {
+            let currentGrade = grade(markT);
+
+            if (currentGrade === "A+") {
+                return 0;
+            } else if (currentGrade === "A") {
+                return 80 - markT;
+            } else if (currentGrade === "B") {
+                return 67 - markT;
+            } else if (currentGrade === "C") {
+                return 54 - markT;
+            } else if (currentGrade === "D") {
+                return 41 - markT;
+            } else if (currentGrade === "E") {
+                return 31 - markT;
+            } else if (currentGrade === "F") {
+                return 22 - markT;
+            } else if (currentGrade === "G") {
+                return 13 - markT;
+            } else if (currentGrade === "U") {
+                return 4 - markT;
+            }
+        }
+    </script>
+</body>
+</html>

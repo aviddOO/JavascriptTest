@@ -3,13 +3,20 @@
 <head>
     <title>Question 2</title>
 </head>
-<body>
-    
-    <p id="dice" style="white-space: pre; font-family: monospace;"></p>
-    <script>
-        let d1 = "0000000000000<br>0           0<br>0   #    #  0<br>0     #     0<br>0   #    #  0<br>0           0<br>0000000000000";
-        document.getElementById("dice").innerHTML = d1;
-    </script>
 
+<body>
+
+    <input type="number" id="num1" value="5">
+    <input type="number" id="num2" value="2">
+    <button onclick="addNumbers()">Add</button>
+    <p id="result"></p>
+
+        <script>
+            function addNumbers() {
+                let c = document.getElementById("num1").value;
+                let d = document.getElementById("num2").value;
+                document.getElementById("result").innerHTML = "The value of c + d is: " + String(Number(c) + Number(d));
+            }
+        </script>
 </body>
 </html>
