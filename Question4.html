@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Question 4</title>
+</head>
+<body>
+    <h1>Welcome to Average Calculator</h1>
+    <p1>Please enter how many numbers you want to calculate the average of:</p1><br>
+    <p2 id="average">The average is: </p2><br>
+    <p3 id="Test">False</p3><br>
+    <input type="number" id="num-count" value="0"><br>
+    <button onclick="beginCalculation()">Enter numbers</button><br>
+    <button onclick="calculateAverage()">Calculate Average</button><br>
+
+    <script>
+        function beginCalculation() {
+            let numCount = Number(document.getElementById("num-count").value);
+
+            for (let i = 0; i < numCount; i++) {
+                const input = document.createElement("input");
+                input.type = "number";
+                input.name = "number" + i;
+                document.body.appendChild(input);
+                document.body.appendChild(document.createElement("br"));
+            }
+        }
+
+        function calculateAverage() {
+            let numCount = Number(document.getElementById("num-count").value);
+            let sum = 0;
+
+            for (let i = 0; i < numCount; i++) {
+                let input = document.getElementsByName("number" + i);
+                sum += input.value
+            }
+            document.getElementById("Test").innerHTML = sum;
+
+            let average = sum/numCount;
+            document.getElementById("average").innerHTML = "The average is: " + String(Number(average));
+        }
+    </script>
+
+
+
+</body>
+</html>
