@@ -7,7 +7,6 @@
     <h1>Welcome to Average Calculator</h1>
     <p1>Please enter how many numbers you want to calculate the average of:</p1><br>
     <p2 id="average">The average is: </p2><br>
-    <p3 id="Test">False</p3><br>
     <input type="number" id="num-count" value="0"><br>
     <button onclick="beginCalculation()">Enter numbers</button><br>
     <button onclick="calculateAverage()">Calculate Average</button><br>
@@ -30,10 +29,9 @@
             let sum = 0;
 
             for (let i = 0; i < numCount; i++) {
-                let input = document.getElementsByName("number" + i);
-                sum += input.value
+                let input = document.getElementsByName("number" + i)[0];
+                sum  += Number(input.value);
             }
-            document.getElementById("Test").innerHTML = sum;
 
             let average = sum/numCount;
             document.getElementById("average").innerHTML = "The average is: " + String(Number(average));
